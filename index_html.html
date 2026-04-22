@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zero To DevOps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600;700&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:      #fdf6ee;
+      --cream2:     #faeee0;
+      --warm-white: #fff9f4;
+      --orange:     #f97316;
+      --orange-lo:  #fed7aa;
+      --pink:       #f472b6;
+      --pink-lo:    #fce7f3;
+      --coral:      #fb923c;
+      --text:       #3d2c1e;
+      --muted:      #9c7c6a;
+      --border:     #f0d9c8;
+      --card-bg:    #fff9f4;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: var(--warm-white);
+      border-bottom: 2px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-logo {
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      color: var(--orange);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--orange); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 5rem 2rem 3rem;
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      color: var(--pink);
+      background: var(--pink-lo);
+      border-radius: 20px;
+      padding: 0.3rem 1.1rem;
+      margin-bottom: 1.5rem;
+      transform: rotate(-1deg);
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.3;
+      color: var(--text);
+      margin-bottom: 1.4rem;
+      font-weight: 600;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--orange);
+    }
+
+    .hero-intro {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .hero-intro strong { color: var(--text); font-weight: 700; }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .btn {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.75rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-orange {
+      background: var(--orange);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(249,115,22,0.3);
+    }
+
+    .btn-orange:hover {
+      background: var(--coral);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(249,115,22,0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--muted);
+      border: 2px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--pink);
+      color: var(--pink);
+    }
+
+    /* ── PERSONAL NOTE ── */
+    .personal-note {
+      background: var(--warm-white);
+      border: 2px solid var(--orange-lo);
+      border-radius: 16px;
+      padding: 1.6rem 1.8rem;
+      max-width: 560px;
+      position: relative;
+    }
+
+    .personal-note::before {
+      content: '✏️ from me to you';
+      font-family: 'Caveat', cursive;
+      font-size: 0.95rem;
+      color: var(--pink);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .personal-note p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .personal-note p strong { color: var(--text); font-style: normal; }
+
+    /* ── WAVY DIVIDER ── */
+    .wavy {
+      text-align: center;
+      font-size: 1.5rem;
+      margin: 3rem auto;
+      color: var(--border);
+      letter-spacing: 6px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    .section-label {
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      color: var(--pink);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .section h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin-bottom: 0.7rem;
+      line-height: 1.3;
+      font-weight: 600;
+    }
+
+    .section > p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+    }
+
+    /* ── CARDS ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem 1.5rem;
+      transition: all 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--orange-lo);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(249,115,22,0.1);
+    }
+
+    .card-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+
+    .card h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── STEPS ── */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+
+    .step {
+      display: flex;
+      gap: 1.4rem;
+      align-items: flex-start;
+      padding: 1.4rem 0;
+      border-bottom: 2px dashed var(--border);
+    }
+
+    .step:last-child { border-bottom: none; }
+
+    .step-num {
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      color: var(--orange);
+      background: var(--orange-lo);
+      border-radius: 8px;
+      padding: 0.3rem 0.7rem;
+      white-space: nowrap;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+
+    .step-content h4 {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+
+    .step-content p { font-size: 0.88rem; color: var(--muted); }
+
+    /* ── STORY STRIP ── */
+    .story-strip {
+      background: linear-gradient(135deg, var(--pink-lo), var(--orange-lo));
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      margin: 0 2rem 4rem;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .story-strip h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .story-strip p {
+      color: var(--text);
+      font-size: 0.95rem;
+      max-width: 560px;
+      opacity: 0.8;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .cta-box {
+      background: var(--warm-white);
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 400px;
+      margin: 0 auto 2rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 2px solid var(--border);
+      background: var(--warm-white);
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer .logo {
+      font-family: 'Caveat', cursive;
+      font-size: 1.2rem;
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer nav ul { gap: 1.5rem; }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.2rem; }
+      nav ul { gap: 1rem; }
+      .hero, .section, .cta { padding-left: 1.2rem; padding-right: 1.2rem; }
+      footer { padding: 1.4rem 1.2rem; flex-direction: column; align-items: flex-start; }
+      .story-strip { margin-left: 1.2rem; margin-right: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Zero To DevOps ✨</a>
+    <ul>
+      <li><a href="index.html">home</a></li>
+      <li><a href="roadmap.html">roadmap</a></li>
+      <li><a href="resources.html">resources</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-tag">free · for beginners · no experience needed 🌱</div>
+
+    <h1>
+      I was a manual tester<br>
+      who had <em>no idea</em> where to start.<br>
+      This is what I wish I had.
+    </h1>
+
+    <p class="hero-intro">
+      I picked up DevOps because I wanted to grow beyond testing. Honestly?
+      <strong>I was terrified I wouldn't be able to do it.</strong>
+      But I took it slowly, one step at a time — and it clicked.
+      If you're sitting there wondering if this is for you, it is. Start here.
+    </p>
+
+    <div class="hero-btns">
+      <a href="roadmap.html" class="btn btn-orange">Show me where to start →</a>
+      <a href="resources.html" class="btn btn-outline">Browse free resources</a>
+    </div>
+
+    <div class="personal-note">
+      <p>
+        Everything here is <strong>completely free</strong>. No sign-ups, no paywalls,
+        no "buy my course" pressure. Just the stuff that actually helped me —
+        shared with you, because someone should have shared it with me.
+      </p>
+    </div>
+  </div>
+
+  <div class="wavy">· · · · · · ·</div>
+
+  <section class="section">
+    <span class="section-label">what's here for you</span>
+    <h2>Everything I wish existed when I started.</h2>
+    <p>Handpicked resources, a clear roadmap, and real projects — all completely free.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🗺️</div>
+        <h3>A path that actually makes sense</h3>
+        <p>When I started I had no idea what to learn first. This roadmap is the order I wish someone had given me from day one.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛠️</div>
+        <h3>Learn by doing — not just watching</h3>
+        <p>Reading about Docker is one thing. Actually building something with it is when it clicks. Everything here is hands on.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💸</div>
+        <h3>Free. No exceptions.</h3>
+        <p>I learned all of this without paying for a single course. Everything I link to here is free — because it should be.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌸</div>
+        <h3>It gets easier — I promise</h3>
+        <p>The beginning is the hardest part. It feels overwhelming and confusing. But if you keep going, one day it just starts to make sense.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="story-strip">
+    <h2>The beginning is tough. That's normal. 💛</h2>
+    <p>When I first started I didn't understand anything. It all looked like a foreign language. But I kept going, practised regularly, and slowly it started to make sense. You will get there too — just don't stop.</p>
+  </div>
+
+  <section class="section">
+    <span class="section-label">the path</span>
+    <h2>Where do you even begin?</h2>
+    <p>Here's the order that actually makes sense — the same path I took.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">step 01</div>
+        <div class="step-content">
+          <h4>Linux & the Command Line</h4>
+          <p>The foundation of everything. Don't skip this — it will make the rest so much easier.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">step 02</div>
+        <div class="step-content">
+          <h4>Git & Version Control</h4>
+          <p>How to save, track and share your code properly. You'll use this every single day.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">step 03</div>
+        <div class="step-content">
+          <h4>Docker & Containers</h4>
+          <p>This is where it starts getting exciting. Package your app so it runs the same everywhere.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">step 04</div>
+        <div class="step-content">
+          <h4>CI/CD Pipelines</h4>
+          <p>Automate the boring stuff — testing, building, deploying. This is proper DevOps.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">step 05</div>
+        <div class="step-content">
+          <h4>Cloud & Kubernetes</h4>
+          <p>Run and scale your apps on AWS. It sounds scary. It really isn't once you get here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div class="cta-box">
+      <h2>Ready when you are 👋</h2>
+      <p>Start the roadmap, grab the free resources, and build something real. You've got this.</p>
+      <a href="roadmap.html" class="btn btn-orange">View the Full Roadmap →</a>
+    </div>
+  </div>
+
+  <footer>
+    <span class="logo">Zero To DevOps ✨</span>
+    <p>free forever · nishajidla.co.uk · made with ☕ and determination</p>
+    <nav>
+      <ul>
+        <li><a href="roadmap.html">roadmap</a></li>
+        <li><a href="resources.html">resources</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+</body>
+</html>
