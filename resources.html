@@ -26,10 +26,10 @@
       --purple:     #7c3aed;
       --purple-lo:  #ede9fe;
     }
- 
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
- 
+
     body {
       background: var(--cream);
       color: var(--text);
@@ -37,7 +37,7 @@
       font-size: 16px;
       line-height: 1.8;
     }
- 
+
     /* NAV */
     nav {
       display: flex;
@@ -50,7 +50,7 @@
       top: 0;
       z-index: 50;
     }
- 
+
     .nav-logo {
       font-family: 'Caveat', cursive;
       font-size: 1.6rem;
@@ -58,9 +58,9 @@
       text-decoration: none;
       font-weight: 600;
     }
- 
+
     nav ul { list-style: none; display: flex; gap: 2rem; }
- 
+
     nav a {
       font-size: 0.9rem;
       color: var(--muted);
@@ -68,17 +68,21 @@
       font-weight: 600;
       transition: color 0.2s;
     }
- 
+
     nav a:hover { color: var(--orange); }
-    nav a.active { color: var(--orange); }
- 
+    nav a.active {
+      color: var(--orange);
+      border-bottom: 2px solid var(--orange);
+      padding-bottom: 2px;
+    }
+
     /* PAGE HEADER */
     .page-header {
       max-width: 820px;
       margin: 0 auto;
       padding: 4rem 2rem 2rem;
     }
- 
+
     .page-tag {
       font-family: 'Caveat', cursive;
       font-size: 1rem;
@@ -90,7 +94,7 @@
       display: inline-block;
       transform: rotate(-1deg);
     }
- 
+
     .page-header h1 {
       font-family: 'Lora', serif;
       font-size: clamp(2rem, 5vw, 3rem);
@@ -98,17 +102,17 @@
       font-weight: 600;
       margin-bottom: 1rem;
     }
- 
+
     .page-header h1 em { font-style: italic; color: var(--orange); }
- 
+
     .page-header p {
       font-size: 1rem;
       color: var(--muted);
       max-width: 580px;
     }
- 
+
     .page-header p strong { color: var(--text); font-weight: 700; }
- 
+
     /* WAVY */
     .wavy {
       text-align: center;
@@ -117,7 +121,7 @@
       color: var(--border);
       letter-spacing: 6px;
     }
- 
+
     /* RESOURCE SECTIONS */
     .resources {
       max-width: 820px;
@@ -127,9 +131,9 @@
       flex-direction: column;
       gap: 3rem;
     }
- 
+
     .resource-group {}
- 
+
     .group-header {
       display: flex;
       align-items: center;
@@ -138,16 +142,16 @@
       padding-bottom: 0.8rem;
       border-bottom: 2px dashed var(--border);
     }
- 
+
     .group-emoji { font-size: 1.4rem; }
- 
+
     .group-header h2 {
       font-family: 'Lora', serif;
       font-size: 1.3rem;
       font-weight: 600;
       color: var(--text);
     }
- 
+
     .group-tag {
       font-family: 'Caveat', cursive;
       font-size: 0.85rem;
@@ -156,19 +160,19 @@
       font-weight: 600;
       margin-left: auto;
     }
- 
+
     .tag-orange { background: var(--orange-lo); color: var(--orange); }
     .tag-green  { background: var(--green-lo);  color: var(--green); }
     .tag-blue   { background: var(--blue-lo);   color: var(--blue); }
     .tag-purple { background: var(--purple-lo); color: var(--purple); }
     .tag-pink   { background: var(--pink-lo);   color: var(--pink); }
- 
+
     .resource-cards {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 1rem;
     }
- 
+
     .resource-card {
       background: var(--card-bg);
       border: 2px solid var(--border);
@@ -179,20 +183,20 @@
       transition: all 0.2s;
       display: block;
     }
- 
+
     .resource-card:hover {
       border-color: var(--orange-lo);
       transform: translateY(-3px);
       box-shadow: 0 8px 24px rgba(249,115,22,0.1);
     }
- 
+
     .rc-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 0.6rem;
     }
- 
+
     .rc-type {
       font-family: 'Caveat', cursive;
       font-size: 0.78rem;
@@ -200,21 +204,21 @@
       padding: 0.15rem 0.6rem;
       border-radius: 20px;
     }
- 
+
     .type-video   { background: #fee2e2; color: #dc2626; }
     .type-site    { background: var(--blue-lo); color: var(--blue); }
     .type-docs    { background: var(--green-lo); color: var(--green); }
     .type-tool    { background: var(--purple-lo); color: var(--purple); }
     .type-course  { background: var(--orange-lo); color: var(--orange); }
     .type-practice { background: var(--pink-lo); color: var(--pink); }
- 
+
     .rc-free {
       font-family: 'Caveat', cursive;
       font-size: 0.78rem;
       color: var(--green);
       font-weight: 600;
     }
- 
+
     .resource-card h3 {
       font-family: 'Lora', serif;
       font-size: 1rem;
@@ -222,13 +226,13 @@
       color: var(--text);
       margin-bottom: 0.3rem;
     }
- 
+
     .resource-card p {
       font-size: 0.84rem;
       color: var(--muted);
       line-height: 1.6;
     }
- 
+
     /* NOTE BOX */
     .note-box {
       background: var(--warm-white);
@@ -238,7 +242,7 @@
       max-width: 820px;
       margin: 0 auto 1rem;
     }
- 
+
     .note-box::before {
       content: '✏️ a note from me';
       font-family: 'Caveat', cursive;
@@ -247,19 +251,19 @@
       display: block;
       margin-bottom: 0.5rem;
     }
- 
+
     .note-box p {
       font-size: 0.92rem;
       color: var(--muted);
       font-style: italic;
       max-width: 640px;
     }
- 
+
     .note-box p strong { color: var(--text); font-style: normal; }
- 
+
     /* CTA */
     .cta { max-width: 820px; margin: 0 auto; padding: 0 2rem 6rem; }
- 
+
     .cta-box {
       background: var(--warm-white);
       border: 2px solid var(--border);
@@ -267,16 +271,16 @@
       padding: 3rem 2rem;
       text-align: center;
     }
- 
+
     .cta-box h2 {
       font-family: 'Lora', serif;
       font-size: clamp(1.4rem, 3vw, 1.9rem);
       margin-bottom: 0.8rem;
       font-weight: 600;
     }
- 
+
     .cta-box p { color: var(--muted); font-size: 0.95rem; max-width: 400px; margin: 0 auto 2rem; }
- 
+
     .btn {
       font-family: 'Nunito', sans-serif;
       font-size: 0.95rem;
@@ -287,15 +291,15 @@
       transition: all 0.2s;
       display: inline-block;
     }
- 
+
     .btn-orange {
       background: var(--orange);
       color: #fff;
       box-shadow: 0 4px 14px rgba(249,115,22,0.3);
     }
- 
+
     .btn-orange:hover { background: var(--coral); transform: translateY(-2px); }
- 
+
     /* FOOTER */
     footer {
       border-top: 2px solid var(--border);
@@ -307,11 +311,21 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
- 
+
     footer .logo { font-family: 'Caveat', cursive; font-size: 1.2rem; color: var(--orange); font-weight: 600; }
     footer p { font-size: 0.8rem; color: var(--muted); }
     footer nav ul { gap: 1.5rem; }
- 
+
+    .footer-social { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .footer-social a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .footer-social a:hover { color: var(--orange); }
+
     @media (max-width: 600px) {
       nav { padding: 1rem 1.2rem; }
       nav ul { gap: 1rem; }
@@ -322,7 +336,7 @@
   </style>
 </head>
 <body>
- 
+
   <nav>
     <a href="index.html" class="nav-logo">Zero To DevOps ✨</a>
     <ul>
@@ -331,24 +345,24 @@
       <li><a href="resources.html" class="active">resources</a></li>
     </ul>
   </nav>
- 
+
   <div class="page-header">
     <div class="page-tag">free resources 🔗</div>
     <h1>The free stuff that<br><em>actually helped me</em>.</h1>
     <p>No paid courses, no referral links, no fluff. Just the resources I'd personally recommend to
       anyone starting out. <strong>Everything here is free.</strong></p>
   </div>
- 
+
   <div class="wavy">· · · · · · ·</div>
- 
+
   <div class="note-box" style="margin-left: auto; margin-right: auto; margin-bottom: 2rem; max-width: 780px;">
     <p>I've tried to keep this list focused. There's a lot of noise out there — tutorials that go nowhere,
       courses that cost money, YouTube videos that are 4 hours long and cover 10 minutes of useful content.
       <strong>This is what I'd actually tell a friend to use.</strong></p>
   </div>
- 
+
   <div class="resources">
- 
+
     <!-- LINUX -->
     <div class="resource-group">
       <div class="group-header">
@@ -383,7 +397,7 @@
         </a>
       </div>
     </div>
- 
+
     <!-- GIT -->
     <div class="resource-group">
       <div class="group-header">
@@ -418,7 +432,7 @@
         </a>
       </div>
     </div>
- 
+
     <!-- DOCKER -->
     <div class="resource-group">
       <div class="group-header">
@@ -453,8 +467,8 @@
         </a>
       </div>
     </div>
- 
-    <!-- CI/CD -->
+
+    <!-- CI/CD — duplicate fixed -->
     <div class="resource-group">
       <div class="group-header">
         <div class="group-emoji">⚙️</div>
@@ -478,17 +492,17 @@
           <h3>GitHub Actions Full Course</h3>
           <p>TechWorld with Nana's full GitHub Actions course on YouTube. Covers everything.</p>
         </a>
-        <a href="https://www.youtube.com/@TechWorldwithNana" target="_blank" class="resource-card">
+        <a href="https://docs.github.com/en/actions/quickstart" target="_blank" class="resource-card">
           <div class="rc-top">
-            <span class="rc-type type-video">video</span>
+            <span class="rc-type type-docs">docs</span>
             <span class="rc-free">free</span>
           </div>
-          <h3>DevOps Bootcamp – Nana</h3>
-          <p>A full free DevOps bootcamp on YouTube. One of the most comprehensive out there.</p>
+          <h3>GitHub Actions Quickstart</h3>
+          <p>The official 5-minute guide — build and run your first workflow fast. Great starting point.</p>
         </a>
       </div>
     </div>
- 
+
     <!-- CLOUD -->
     <div class="resource-group">
       <div class="group-header">
@@ -523,7 +537,7 @@
         </a>
       </div>
     </div>
- 
+
     <!-- GENERAL -->
     <div class="resource-group">
       <div class="group-header">
@@ -558,9 +572,9 @@
         </a>
       </div>
     </div>
- 
+
   </div>
- 
+
   <div class="cta">
     <div class="cta-box">
       <h2>Not sure where to start? 🗺️</h2>
@@ -568,17 +582,16 @@
       <a href="roadmap.html" class="btn btn-orange">Go to the Roadmap →</a>
     </div>
   </div>
- 
+
   <footer>
     <span class="logo">Zero To DevOps ✨</span>
     <p>© 2026 Zero To DevOps · nishajidla.co.uk · made with ☕ and determination</p>
-    <nav>
-      <ul>
-        <li><a href="roadmap.html">roadmap</a></li>
-        <li><a href="resources.html">resources</a></li>
-      </ul>
-    </nav>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/nishajidla" target="_blank">LinkedIn</a>
+      <a href="https://github.com/nisha-jidla" target="_blank">GitHub</a>
+      <a href="https://www.facebook.com/profile.php?id=61563698367639" target="_blank">Facebook</a>
+    </div>
   </footer>
- 
+
 </body>
 </html>
